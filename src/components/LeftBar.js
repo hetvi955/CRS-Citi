@@ -1,12 +1,11 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-
+import UploadButton from './UploadButton';
 
 export default function LeftBar() {
     let stl={
-        "display": "flex",
-        "align-item": "center",
-        "justify-content": "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         "height":"92vh",
         "width": "50vw"        
     }
@@ -16,14 +15,11 @@ export default function LeftBar() {
         justifyContent: "center",
         width: "100%"        
     }
-    let btnHeight={
-        "height":"6vh"
-    }
   return (
     <>
     <div style={stl}>
         <div style={stl1}>
-            <Button variant="outline-primary" style={btnHeight}>Choose Image</Button>{' '}
+            <UploadButton/>
         </div>
     </div>
     </>

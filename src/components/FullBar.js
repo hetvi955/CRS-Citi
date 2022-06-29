@@ -7,6 +7,8 @@ export default function FullBar() {
     let mainstl1={
         display: "flex",
     };
+
+    
   return (
     <>
     <div style={mainstl1}>

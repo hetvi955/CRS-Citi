@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function RightBar() {
     let stlBg={
@@ -28,7 +29,10 @@ export default function RightBar() {
     };
     
     let btnHeight={
-        "height":"6vh"
+        "height":"8vh",
+        "width": "34vw",
+        // backgroundColor: "#87ACD7",
+        // border: "#87ACD7"
     }
 
   return (
@@ -42,7 +46,7 @@ export default function RightBar() {
             We will help you detect the check instantly
         </div>
         <div style={stlBtn}>
-            <Button variant="primary" style={btnHeight}><FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Choose Image</Button>{' '}
+            <Button variant="info" style={btnHeight}><FontAwesomeIcon icon={faArrowLeft} /> Choose Image</Button>{' '}
         </div>
     </div>
   )
