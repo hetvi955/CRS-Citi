@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
 
 export default class uploadButton extends Component {
     state = { 
@@ -52,30 +51,12 @@ export default class uploadButton extends Component {
   render() {
     return (
       <>
-      {
-        this.state.isFileUploaded ? 
-    <div style={this.divStyle}>
-        {this.imageSource()}
-        <br />
-        <Button onClick={()=>{this.uploadHandler()}} variant="outline-dark" style={this.btnHeight1}>Upload Image</Button>{' '}
-    </div>
-        : 
-    <>
-        <input type="file"
-          style={{display: "none"}}
-          onChange={this.fileChangedHandler}
-          ref={fileInput => this.fileInput = fileInput}
-          ></input>
-        <Button onClick={()=>{this.fileInput.click()}} variant="outline-dark" style={this.btnHeight}>Choose Image</Button>{' '}
-    </>
-    
-    }
+      
       </>
         
     )
   }
 }
-
 
 
 
