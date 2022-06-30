@@ -16,39 +16,39 @@ export default class LeftBar extends Component {
         width: "100%"        
     }
 
-    state = { 
-        selectedFile: null ,
-        isFileUploaded: false,
-    }
+    // state = { 
+    //     selectedFile: null ,
+    //     isFileUploaded: false,
+    // }
     
     
-    fileChangedHandler = async event => {
+    // fileChangedHandler = async event => {
 
-        this.setState({ selectedFile: event.target.files[0] });
+    //     this.setState({ selectedFile: event.target.files[0] });
         
-        await setTimeout(() => {
-            console.log("I am in set timr out");
-            this.setState({isFileUploaded: true});
-            // console.log(this.state.isFileUploaded);
+    //     await setTimeout(() => {
+    //         console.log("I am in set timr out");
+    //         this.setState({isFileUploaded: true});
+    //         // console.log(this.state.isFileUploaded);
            
-        }, 2000);
+    //     }, 2000);
 
-    }
+    // }
 
-    uploadHandler = () => {
-        console.log(this.state.selectedFile)
-        console.log(this.state.isFileUploaded);
-    }
+    // uploadHandler = () => {
+    //     console.log(this.state.selectedFile)
+    //     console.log(this.state.isFileUploaded);
+    // }
 
-    imageSource = () => {
-        const objectUrl = URL.createObjectURL(this.state.selectedFile)
-        return (
-            <>
-                <img src={objectUrl} height="200px" />
-            </>
-        )
+    // imageSource = () => {
+    //     const objectUrl = URL.createObjectURL(this.state.selectedFile)
+    //     return (
+    //         <>
+    //             <img src={objectUrl} height="200px" />
+    //         </>
+    //     )
 
-    }
+    // }
 
     btnHeight={
         "height":"6vh"
@@ -69,17 +69,21 @@ export default class LeftBar extends Component {
         <div style={this.stl}>
             <div style={this.stl1}>
             {
-            this.state.isFileUploaded ? 
+            this.props.state.isFileUploaded ? 
         <div style={this.divStyle}>
-            {this.imageSource()}
+            {this.props.imageSource()}
             <br />
-            <Button onClick={()=>{this.uploadHandler()}} variant="outline-dark" style={this.btnHeight1}>Upload Image</Button>{' '}
+            {this.props.state.resultRecievedFromAPI ? "":
+            <>
+            <Button onClick={()=>{this.props.uploadHandler()}} variant="outline-dark" style={this.btnHeight1}>Upload Image</Button>{' '}
+            </>
+            }
         </div>
             : 
         <>
             <input type="file"
               style={{display: "none"}}
-              onChange={this.fileChangedHandler}
+              onChange={this.props.fileChangedHandler}
               ref={fileInput => this.fileInput = fileInput}
               ></input>
             <Button onClick={()=>{this.fileInput.click()}} variant="outline-dark" style={this.btnHeight}>Choose Image</Button>{' '}
